@@ -19,3 +19,15 @@ class Staff(models.Model):
     
     def __str__(self):
         return self.name
+    
+    
+class ContactUs(models.Model):
+    name = models.CharField(max_length=200,verbose_name='ชื่อผู้ถาม')
+    title = models.CharField(max_length=200,verbose_name='ชื่อปัญหา')
+    detail = models.TextField(null=True,blank=True,verbose_name='รายละเอียดปัญหา')
+    email = models.CharField(max_length=200,verbose_name='อีเมล์ผู้ติดต่อ')
+    done = models.BooleanField(default=False,verbose_name='แก้ปัญหาจบหรือยัง')
+    summary = models.TextField(null=True,blank=True,verbose_name='สรุปปัญหานี้แก้อย่างไร')
+    
+    def __str__(self):
+        return self.title
